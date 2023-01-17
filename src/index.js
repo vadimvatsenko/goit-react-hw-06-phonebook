@@ -8,8 +8,6 @@ import { store } from "./redux/store";
 import "../node_modules/normalize.css/normalize.css";
 import './styles/main.scss';
 
-// import 'modern-normalize/modern-normalize.css';
-
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>

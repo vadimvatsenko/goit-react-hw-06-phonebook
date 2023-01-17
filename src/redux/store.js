@@ -1,6 +1,6 @@
 //файл создания стора Redux
 import { createStore } from "redux";
-import { devToolsEnhancer } from "@redux-devtools/extension"
+import { devToolsEnhancer } from "@redux-devtools/extension";//Redux devTools
 // Начальное значение состояния Redux для корневого редюсера,
 // если не передать параметр preloadedState.
 const initialState = {
@@ -20,6 +20,8 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
   return state;
 };
-const enhancer = devToolsEnhancer();
-export const store = createStore(rootReducer, enhancer);
 
+const enhancer = devToolsEnhancer();//создаем инструмент разработчика
+
+
+export const store = createStore(rootReducer, enhancer);

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import Section from "./section";
 import Contacts from "./contacts";
 import {Form} from "./form/form";
@@ -14,6 +15,12 @@ export const App = () => {
   // анонимная функция внутри useState для загрузки только одного раза при загрузке страницы при первом рендере
 
   const [filter, setFilter] = useState('');
+//
+  const value = useSelector(state => state.tasks);
+  const value2 = value.map((val) => Object.values(val))
+  console.log(value2);
+//
+
 
   useEffect(() => {
     window.localStorage.setItem('contacts', JSON.stringify(contacts))
