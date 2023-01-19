@@ -1,28 +1,16 @@
-//DONE
 import style from "./contacts.module.scss";
 import PropTypes from 'prop-types';
 import React from "react";
 //
 import { useSelector } from "react-redux";
-import { statusFilters } from "../../redux/tasks/constatns"
-//
-export default function Contacts({ title, contacts, onDeliteContact, children }) {
-    const value = useSelector(state => state.tasks);
-    const filter = useSelector(state => state.filters.status);
-    console.log(value)
-    console.log(filter)
 
-    return (
-        <>
-            <div style={{
-                display: 'flex',
-                flexDirection: 'column'
-            }}>
-                <button selected={filter === statusFilters.all}>All</button>
-                <button selected={filter === statusFilters.active}>Active</button>
-                <button selected={filter === statusFilters.completed}>Completed</button>
-            </div>
-       
+//
+// export default function Contacts({ title, contacts, onDeliteContact, children }) {
+    export default function Contacts({ title, onDeliteContact, children }) {
+    const contacts = useSelector(state => state.contacts);
+
+
+        return (
             <div className={style.contacts}>
             
                 <h2>{title}</h2>
@@ -38,7 +26,8 @@ export default function Contacts({ title, contacts, onDeliteContact, children })
                                 <button
                                     className={style.contacts__button}
                                     type='button'
-                                    onClick={() => onDeliteContact(id)}>
+                                    // onClick={() => onDeliteContact(id)}
+                                >
                                     Remove
                                 </button>
                             </li>
@@ -46,10 +35,7 @@ export default function Contacts({ title, contacts, onDeliteContact, children })
                     </ul>
                 </div>
             </div>
-        </>
-        
-        
-    );
+        );
 };
 
 Contacts.protoType = {

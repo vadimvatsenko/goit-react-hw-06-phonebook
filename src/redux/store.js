@@ -1,27 +1,24 @@
-//файл создания стора Redux
 import { createStore } from "redux";
-import { devToolsEnhancer } from "@redux-devtools/extension";//Redux devTools
-// Начальное значение состояния Redux для корневого редюсера,
-// если не передать параметр preloadedState.
+import { devToolsEnhancer } from "@redux-devtools/extension";
+
 const initialState = {
-  tasks: [
-    { id: 0, text: "Learn HTML and CSS", completed: true },
-    { id: 1, text: "Get good at JavaScript", completed: true },
-    { id: 2, text: "Master React", completed: false },
-    { id: 3, text: "Discover Redux", completed: false },
-    { id: 4, text: "Build amazing apps", completed: false },
-  ],
-  filters: {
-    status: "all",
-  },
-};
-// Пока что используем редюсер который
-// только возвращает полученное состояние
-const rootReducer = (state = initialState, action) => {
-  return state;
+  contacts: [],
+  filter: ""
 };
 
-const enhancer = devToolsEnhancer();//создаем инструмент разработчика
+export const rootReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case "contacts/addContacts":
+      return {
+        ...state,
+        contacts: [...state.contacts, action.payload],
+      };
+    default:
+      return state;
+  }
+};
 
+// Создаем расширение стора чтобы добавить инструменты разработчика
+const enhancer = devToolsEnhancer();
 
 export const store = createStore(rootReducer, enhancer);
