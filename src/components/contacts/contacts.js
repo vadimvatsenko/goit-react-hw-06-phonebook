@@ -1,15 +1,15 @@
 import style from "./contacts.module.scss";
 import PropTypes from 'prop-types';
 import React from "react";
-//
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { delContacts } from "redux/actions";
 
-//
-// export default function Contacts({ title, contacts, onDeliteContact, children }) {
-    export default function Contacts({ title, onDeliteContact, children }) {
-    const contacts = useSelector(state => state.contacts);
+    export default function Contacts({ title, children }) {
+        const contacts = useSelector(state => state.contacts);
+        const dispatch = useDispatch();
 
-
+        // const handleDelete = (id) => dispatch(delContacts(id));
+        
         return (
             <div className={style.contacts}>
             
@@ -24,9 +24,9 @@ import { useSelector } from "react-redux";
                                 <p>{name}</p>
                                 <p>{number}</p>
                                 <button
-                                    className={style.contacts__button}
-                                    type='button'
-                                    // onClick={() => onDeliteContact(id)}
+                                    // className={style.contacts__button}
+                                    // type='button'
+                                    // onClick={handleDelete(id)}
                                 >
                                     Remove
                                 </button>
@@ -40,12 +40,5 @@ import { useSelector } from "react-redux";
 
 Contacts.protoType = {
     title: PropTypes.string.isRequired,
-    onDeliteContact: PropTypes.func.isRequired,
-    contacts: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string,
-        name: PropTypes.string,
-        number: PropTypes.string,
-    })).isRequired
-
 }
 

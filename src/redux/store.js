@@ -13,6 +13,10 @@ export const rootReducer = (state = initialState, action) => {
         ...state,
         contacts: [...state.contacts, action.payload],
       };
+    case 'contacts/delContacts':
+      return {
+        state
+      }
     default:
       return state;
   }
