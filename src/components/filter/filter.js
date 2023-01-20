@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 const idForFilter = nanoid();
 
-export default function Filter({ value, changeFilter }) {
+export default function Filter() {
     return (
         <form className={style.filter__form}> 
             <label
@@ -20,8 +20,9 @@ export default function Filter({ value, changeFilter }) {
                 id={idForFilter}
                 type="text"
                 name="filter"
-                value={value}
-                onChange={changeFilter} />
+                // value={value}
+            // onChange={changeFilter} 
+            />
         </form>
     )
 }

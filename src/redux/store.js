@@ -15,7 +15,8 @@ export const rootReducer = (state = initialState, action) => {
       };
     case 'contacts/delContacts':
       return {
-        state
+        ...state,
+        contacts: state.contacts.filter(contact => contact.id !== action.payload),
       }
     default:
       return state;

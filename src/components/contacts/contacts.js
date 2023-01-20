@@ -6,11 +6,18 @@ import { delContacts } from "redux/actions";
 
     export default function Contacts({ title, children }) {
         const contacts = useSelector(state => state.contacts);
-        const dispatch = useDispatch();
-
-        // const handleDelete = (id) => dispatch(delContacts(id));
+        const dispatch = useDispatch();       
         
+        if (contacts.length < 1 ) {
+            return (
+                <div className={style.contacts__emty}>
+                    <h2>Missing contacts</h2>
+                </div>
+            );
+        }
+                
         return (
+            
             <div className={style.contacts}>
             
                 <h2>{title}</h2>
@@ -24,9 +31,9 @@ import { delContacts } from "redux/actions";
                                 <p>{name}</p>
                                 <p>{number}</p>
                                 <button
-                                    // className={style.contacts__button}
-                                    // type='button'
-                                    // onClick={handleDelete(id)}
+                                    className={style.contacts__button}
+                                    type='button'
+                                    onClick={() => { dispatch(delContacts(id)) }}
                                 >
                                     Remove
                                 </button>
@@ -35,7 +42,7 @@ import { delContacts } from "redux/actions";
                     </ul>
                 </div>
             </div>
-        );
+        );;;
 };
 
 Contacts.protoType = {

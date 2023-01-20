@@ -37,10 +37,14 @@ export const Form = () => {
 
 
     return (
-        <form className={style.form__section}
-        onSubmit={formSubmitHandle}
+        <form
+            className={style.form__section}
+            onSubmit={formSubmitHandle}
         >
-            <label className={style.label__header} htmlFor={nameInputId}>Name</label>
+            <label
+                className={style.label__header}
+                htmlFor={nameInputId}>Name
+            </label>
             <input
                 className={style.label__input}
                 id={nameInputId}
@@ -50,8 +54,8 @@ export const Form = () => {
                 title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                 required
             />
-            <label  className={style.label__header}
-                    htmlFor={numberInputId}>Number</label>
+            <label className={style.label__header}
+                htmlFor={numberInputId}>Number</label>
             <input
                 className={style.label__input}
                 id={numberInputId}
