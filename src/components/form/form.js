@@ -4,7 +4,7 @@ import { nanoid } from 'nanoid';
 import { Notify } from 'notiflix/build/notiflix-notify-aio'
 
 import { useSelector, useDispatch } from "react-redux";
-import { addContacts } from "redux/actions";
+import { addContacts } from "redux/contacts/actions";
 
 export const Form = () => {
     const contacts = useSelector(state => state.contacts);

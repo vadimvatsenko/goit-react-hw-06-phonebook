@@ -2,10 +2,13 @@ import style from "./contacts.module.scss";
 import PropTypes from 'prop-types';
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { delContacts } from "redux/actions";
+import { delContacts } from "redux/contacts/actions";
+import { getContacts } from "redux/contacts/selectors";
 
-    export default function Contacts({ title, children }) {
-        const contacts = useSelector(state => state.contacts);
+export default function Contacts({ title, children }) {
+        
+    const contacts = useSelector(getContacts);
+    console.log(contacts)
         const dispatch = useDispatch();       
         
         if (contacts.length < 1 ) {

@@ -6,9 +6,7 @@ import style from "./contacts/contacts.module.scss";
 // import { useSelector } from "react-redux";
 
 export const App = () => {
-  // const contacts = useSelector(state => state.contacts)
 
- 
   return (
     <Section title='Phonebook'>
       <Form />
