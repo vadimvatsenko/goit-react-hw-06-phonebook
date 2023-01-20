@@ -2,12 +2,21 @@
 import React from "react";
 import style from './filter.module.scss';
 import { nanoid } from 'nanoid';
-import PropTypes from 'prop-types';
-
+import { filterContacts } from "redux/contacts/actions";
+import { useDispatch } from "react-redux";
 
 const idForFilter = nanoid();
 
 export default function Filter() {
+    const dispatch = useDispatch()
+
+
+    const changeFilter = (e) => {
+        const name = e.target.value.toLowerCase()
+        dispatch(filterContacts(name))
+
+    }
+
     return (
         <form className={style.filter__form}> 
             <label
@@ -20,14 +29,11 @@ export default function Filter() {
                 id={idForFilter}
                 type="text"
                 name="filter"
-                // value={value}
-            // onChange={changeFilter} 
+                onChange={changeFilter} 
             />
         </form>
     )
 }
 
-// Filter.propTypes = {
-//     value: PropTypes.string.isRequired,
-//     changeFilter: PropTypes.func.isRequired
-// }
+// return contacts.filter(contact =>  
+//       contact.name.toLowerCase().includes(normalizedFilter)

@@ -2,11 +2,10 @@
 import style from './form.module.scss'
 import { nanoid } from 'nanoid';
 import { Notify } from 'notiflix/build/notiflix-notify-aio'
-
 import { useSelector, useDispatch } from "react-redux";
 import { addContacts } from "redux/contacts/actions";
 
-export const Form = () => {
+export default function Form() {
     const contacts = useSelector(state => state.contacts);
     const dispatch = useDispatch()
 
