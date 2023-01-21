@@ -12,7 +12,7 @@ export default function Filter() {
 
 
     const changeFilter = (e) => {
-        const name = e.target.value.toLowerCase()
+        const name = e.target.value.toLowerCase();
         dispatch(filterContacts(name))
 
     }
@@ -35,5 +35,5 @@ export default function Filter() {
     )
 }
 
-// return contacts.filter(contact =>  
-//       contact.name.toLowerCase().includes(normalizedFilter)
+
+
