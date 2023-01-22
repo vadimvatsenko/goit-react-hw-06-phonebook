@@ -3,12 +3,14 @@ import React from "react";
 import style from './filter.module.scss';
 import { nanoid } from 'nanoid';
 import { filterContacts } from "redux/contacts/actions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const idForFilter = nanoid();
 
 export default function Filter() {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const filter = useSelector(state => state.filters);
+    console.log(filter)
 
 
     const changeFilter = (e) => {
@@ -30,6 +32,7 @@ export default function Filter() {
                 type="text"
                 name="filter"
                 onChange={changeFilter} 
+                value={filter}
             />
         </form>
     )

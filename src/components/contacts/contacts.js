@@ -6,8 +6,12 @@ import { delContacts } from "redux/contacts/actions";
 import { getContacts } from "redux/contacts/selectors";
 
 export default function Contacts({ title, children }) {
-        
-    const contacts = useSelector(getContacts);
+     
+    // const contacts = useSelector(getContacts);
+    // console.log(contacts)
+
+    const contacts = useSelector(state => state.contacts)
+    console.log(contacts)
         const dispatch = useDispatch();       
         
         if (contacts.length < 1 ) {

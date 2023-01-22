@@ -9,33 +9,26 @@ export const rootContacts = (state = contactsInitialState, action) => {
       return [...state, action.payload]
       
     case 'contacts/delContacts':
-      return
-      state.filter(contact => contact.id !== action.payload);
+      return state.filter(contact => contact.id !== action.payload)
+    
+    case 'filter/filterContacts': 
+      return state.filter(contact => contact.name.toLowerCase().includes(action.payload))
+ 
       
-    // case "filter/filterContacts":
-    //   return{
-    //     contacts: state.contacts.filter(contact => contact.name.includes(action.payload)),
-    //   }
     default:
       return state;
   }
 };
 
+export const rootFilters = (state = filters, actions) => {
+  
+}
+
+
+
 export const rootReducer = combineReducers({
   contacts: rootContacts,
-  // filters: filtersReducer,
 });
-
-// export const rootFilter = (state = contactsInitialState, action) => {
-//   switch (action.type) {
-//     case "filter/filterContacts":
-//       return {
-          
-//       }
-//     default:
-//       return ''
-//   }
-// }
 
 
 
