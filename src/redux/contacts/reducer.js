@@ -1,23 +1,6 @@
 import { combineReducers } from "redux";
 
-const contactsInitialState = [
-  {
-      id: 'ecd1Etg3WGzgcGOnAbWHG',
-      name: 'Вадим Ваценко',
-      number: '0934223131'
-    },
-    {
-      id: 'KUb056LAQjHaiVoCHaEOq',
-      name: 'Вадим',
-      number: '0934223131'
-    },
-    {
-      id: 'oegE0yYQf8OktPKV9mCVh',
-      name: 'Vadik',
-      number: '0934223131'
-    }
-];
-
+const contactsInitialState = [];
 const filters = ''
 
 export const rootContacts = (state = contactsInitialState, action) => {
@@ -33,9 +16,6 @@ export const rootContacts = (state = contactsInitialState, action) => {
   }
 }
 
-
-
-
 export const rootFilters = (state = filters, action) => {
   switch (action.type) {
     case 'filter/filterContacts':
@@ -44,7 +24,6 @@ export const rootFilters = (state = filters, action) => {
       return state
   }
 }
-
 
 export const rootReducer = combineReducers({
   contacts: rootContacts,

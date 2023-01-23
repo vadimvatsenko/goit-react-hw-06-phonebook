@@ -9,7 +9,9 @@ export default function Contacts({ title, children }) {
     const dispatch = useDispatch()
     const contacts = useSelector(getContacts);
     const filter = useSelector(getFilters)
-    const filterContacts = contacts.filter(contact => contact.name.toLowerCase().includes(filter.toLowerCase()))       
+    //
+    const filterContacts = contacts.filter(contact => contact.name.toLowerCase().includes(filter.toLowerCase())) 
+    //
         
         if (contacts.length < 1 ) {
             return (
