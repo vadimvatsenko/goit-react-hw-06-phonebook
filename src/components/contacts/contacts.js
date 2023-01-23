@@ -3,16 +3,13 @@ import PropTypes from 'prop-types';
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { delContacts } from "redux/contacts/actions";
-import { getContacts } from "redux/contacts/selectors";
+import { getContacts, getFilters } from "redux/contacts/selectors";
 
 export default function Contacts({ title, children }) {
-     
-    // const contacts = useSelector(getContacts);
-    // console.log(contacts)
-
-    const contacts = useSelector(state => state.contacts)
-    console.log(contacts)
-        const dispatch = useDispatch();       
+    const dispatch = useDispatch()
+    const contacts = useSelector(getContacts);
+    const filter = useSelector(getFilters)
+    const filterContacts = contacts.filter(contact => contact.name.toLowerCase().includes(filter.toLowerCase()))       
         
         if (contacts.length < 1 ) {
             return (
@@ -32,7 +29,7 @@ export default function Contacts({ title, children }) {
            
                     <ul
                         className={style.contacts__list}>
-                        {contacts.map(({ id, name, number }) => (
+                        {filterContacts.map(({ id, name, number }) => (
                             <li key={id} className={style.contacts__item}>
                                 <p>{name}</p>
                                 <p>{number}</p>

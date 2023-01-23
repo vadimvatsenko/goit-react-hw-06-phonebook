@@ -3,19 +3,20 @@ import React from "react";
 import style from './filter.module.scss';
 import { nanoid } from 'nanoid';
 import { filterContacts } from "redux/contacts/actions";
+
 import { useDispatch, useSelector } from "react-redux";
+
+import { getFilters } from "redux/contacts/selectors";
 
 const idForFilter = nanoid();
 
 export default function Filter() {
     const dispatch = useDispatch();
-    const filter = useSelector(state => state.filters);
-    console.log(filter)
-
+    const filter = useSelector(getFilters);
 
     const changeFilter = (e) => {
         const name = e.target.value.toLowerCase();
-        dispatch(filterContacts(name))
+        dispatch(filterContacts(name));
 
     }
 
