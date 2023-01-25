@@ -8,14 +8,15 @@ const filtersSlice = createSlice({
 
   reducers: {
     filterContacts(state, action) {
-      state = action.payload
+      return state = action.payload
     },
     
 
   },
 });
 
-const filterContacts = filtersSlice.actions;
+export const { filterContacts } = filtersSlice.actions;
+//обязательно дестуктуризировать
 
 export const filterReducer = filtersSlice.reducer;
 

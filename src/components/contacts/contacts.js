@@ -2,13 +2,15 @@ import style from "./contacts.module.scss";
 import PropTypes from 'prop-types';
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { delContacts } from "redux/contacts/actions";
+// import { delContacts } from "redux/contacts/actions";
+import { delContacts } from "redux/contacts/contactsSlice";
 import { getContacts, getFilters } from "redux/contacts/selectors";
 
 export default function Contacts({ title, children }) {
     const dispatch = useDispatch()
     const contacts = useSelector(getContacts);
-    const filter = useSelector(getFilters)
+    const filter = useSelector(getFilters);
+    
     //
     const filterContacts = contacts.filter(contact => contact.name.toLowerCase().includes(filter.toLowerCase())) 
     //
