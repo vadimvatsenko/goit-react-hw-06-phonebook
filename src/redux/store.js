@@ -1,7 +1,18 @@
-import { createStore } from "redux";
-import { devToolsEnhancer } from "@redux-devtools/extension";
-import { rootReducer } from "./contacts/reducer";
+import { configureStore } from "@reduxjs/toolkit";
+import { rootContacts, rootFilters } from "./contacts/reducer";
 
-// Создаем расширение стора чтобы добавить инструменты разработчика
-const enhancer = devToolsEnhancer();
-export const store = createStore(rootReducer, enhancer);
+export const store = configureStore({
+    reducer: {
+        contacts: rootContacts,
+        filters: rootFilters
+  }
+});
+
+//=============== Before ========================
+// import { createStore } from "redux";
+// import { devToolsEnhancer } from "@redux-devtools/extension";
+// import { rootReducer } from "./contacts/reducer";
+
+// // Создаем расширение стора чтобы добавить инструменты разработчика
+// const enhancer = devToolsEnhancer();
+// export const store = createStore(rootReducer, enhancer);
