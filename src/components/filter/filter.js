@@ -7,14 +7,11 @@ import { filterContacts } from "redux/contacts/filterSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { getFilters } from "redux/contacts/selectors";
 
-console.log(filterContacts)
-
 const idForFilter = nanoid();
 
 export default function Filter() {
     const dispatch = useDispatch();
     const filter = useSelector(getFilters);
-    console.log(filter)
 
     const changeFilter = e => {
         const name = e.target.value.toLowerCase();
