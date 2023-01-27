@@ -17,6 +17,5 @@ const filtersSlice = createSlice({
 
 export const { filterContacts } = filtersSlice.actions;
 //обязательно дестуктуризировать
-
 export const filterReducer = filtersSlice.reducer;
 
