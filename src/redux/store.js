@@ -14,13 +14,10 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { combineReducers } from "@reduxjs/toolkit";
 
-
-
 const rootReducer = combineReducers({
   contacts: contactsReducer,
   filter: filterReducer,
 });
-
 
 const persistConfig = {
   key: 'contacts',
@@ -30,11 +27,8 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-
-
 export const store = configureStore({
   reducer: persistedReducer,
-
     middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
